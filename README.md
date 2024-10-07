@@ -81,5 +81,3 @@ const seenThisOptions = {
         }
     };
 ```
-## Example Use Case:
-For the domain example2.com, the topscroll_mobile ad size is overridden to [[320, 320]], and the mobile_2_outstream peek amount is reduced to 75vh. All other ad units for example2.com will use the default configuration.

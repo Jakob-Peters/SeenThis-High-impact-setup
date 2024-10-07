@@ -65,7 +65,7 @@ const seenThisOptions = {
         peekAmount: '100vh' 
           }
       },
-    'dbrs.dk': {
+    'avisendanmark.dk': {
         'mobile_3': {
             template: 'midscroll',
             slot: '{{ pathPrefix }}{{ pathOverride }}mobile_3',

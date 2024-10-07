@@ -16,8 +16,28 @@ If no match is found, the default configuration is used, or the system returns n
 
 ## Example Domains:
 jv.dk (default configuration)
-example2.com (domain-specific overrides)
-Domains that are not listed in the configuration are ignored, ensuring the code is only applied where needed.
+fyens.dk.com (domain-specific overrides)
+```javascript
+const seenThisOptions = {
+    'jv.dk': {}, // Empty config for 'jv.dk', will load default.
+    'fyens.dk': { //loades default settings + override if any key-value entries are different. 
+      'mobile_2_outstream': {
+        template: 'midscroll',
+        slot: '{{ pathPrefix }}{{ pathOverride }}mobile_2_outstream',
+        sizes: [[300, 240], [320, 320]],
+        peekAmount: '100vh' 
+      },
+      'mobile_3': {
+        template: 'midscroll',
+        slot: '{{ pathPrefix }}{{ pathOverride }}mobile_2_outstream',
+        sizes: [[300, 240], [320, 320]],
+        peekAmount: '100vh' 
+      }
+    },
+    // Additional domains can be added here
+  };
+```
+Domains that are not listed in the configuration variable `seenThisOptions` are ignored, ensuring the code is only applied where needed.
 
 ## Code Structure
 `defaultConfig`: Defines default ad units, including templates, sizes, and peek amounts.

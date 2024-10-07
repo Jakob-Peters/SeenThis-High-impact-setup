@@ -1,16 +1,26 @@
 function() {
+
   // Configuration object for specific domains, allowing overrides
   const seenThisOptions = {
-    'jv.dk': {}, // Empty config for 'jv.dk'
-    'fyens.dk': {
-      'mobile_2_outstream': {
-        template: 'midscroll',
-        slot: '{{ pathPrefix }}{{ pathOverride }}mobile_2_outstream',
-        sizes: [[300, 240], [320, 320]],
-        peekAmount: '100vh' 
-      }
-    },
-    // Additional domains can be added here
+    'avisendanmark.dk': {},
+    'dagbladet-holstebro-struer.dk': {},
+    'viborg-folkeblad.dk': {},
+    'vafo.dk': {},
+    'stiften.dk': {},
+    'jv.dk': {},
+    'hsfo.dk': {},
+    'helsingordagblad': {},
+    'fyens.dk': {},
+    'frdb.dk': {},
+    'folkebladetlemvig.dk': {},
+    'faa.dk': {},
+    'erhvervplus.dk': {},
+    'dbrs.dk': {},
+    'amtsavisen.dk': {},
+    'ugeavisen.dk': {},
+    'amagerliv.dk': {},
+    'frederiksberg.dk': {},
+    'kobenhavnliv.dk': {},
   };
 
   // Default configuration object for ad units
@@ -20,7 +30,7 @@ function() {
       slot: '{{ pathPrefix }}topscroll_mobile',
       sizes: [[300, 230], [1, 2]],
       peekAmount: '80vh' // Set unique peek amount for topscroll_mobile
-    }, /*
+    },
     'mobile_2_outstream': {
       template: 'midscroll',
       slot: '{{ pathPrefix }}{{ pathOverride }}mobile_2_outstream',
@@ -74,7 +84,7 @@ function() {
       slot: '{{ pathPrefix }}{{ pathOverride }}mobile_dai',
       sizes: [[300, 240], [320, 320]],
       peekAmount: '100vh'
-    }, */
+    },
   };
 
   // Check if the current domain has an entry in seenThisOptions
@@ -82,10 +92,10 @@ function() {
     var domainOptions = seenThisOptions['{{ mappedDomain }}'];
 
     // Even if domainOptions is empty, return the default configuration
-    console.log('domainOptions er vendt retur som true');
+    //console.log('domainOptions er vendt retur som true');
     return Object.assign(defaultConfig, domainOptions);
   }
 
-  console.log('domainOptions er vendt retur som false');
+  //console.log('domainOptions er vendt retur som false');
   return null;
 }

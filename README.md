@@ -2,8 +2,8 @@
 This project provides a flexible ad unit configuration system that dynamically applies different ad unit settings based on the domain. It enables the use of a default configuration and domain-specific overrides to control properties such as ad templates, sizes, and display settings.
 
 ## Features
-Default Configuration: A standard set of ad unit settings that apply to all domains unless overridden.
-Domain-Specific Overrides: Allows custom configurations for specific domains, adjusting ad sizes, peek amounts, and more.
+Default Configuration: A standard set of ad unit settings that apply to all domains unless overridden.  
+Domain-Specific Overrides: Allows custom configurations for specific domains, adjusting ad sizes, peek amounts, and more.  
 Automatic Application: The configuration is automatically injected based on the current domain, ensuring the correct ad settings are used.
 
 ## How It Works
@@ -20,7 +20,7 @@ fyens.dk.com (domain-specific overrides)
 ```javascript
 const seenThisOptions = {
     'jv.dk': {}, // Empty config for 'jv.dk', will load default.
-    'fyens.dk': { //loades default settings + override if any key-value entries are different. 
+    'fyens.dk': { // Loads default settings + override if any key-value entries are different. 
       'mobile_2_outstream': {
         template: 'midscroll',
         slot: '{{ pathPrefix }}{{ pathOverride }}mobile_2_outstream',
@@ -51,15 +51,35 @@ Object.assign(): Merges the domain-specific configuration with the default confi
 To add a new domain to the configuration, update the `seenThisOptions` object as follows:
 ```javascript
 const seenThisOptions = {
-  'newdomain.com': {
-    'topscroll_mobile': {
-      sizes: [[320, 320]] // Customize sizes for topscroll_mobile
-    },
-    'mobile_2_outstream': {
-      peekAmount: '75vh' // Customize peekAmount for mobile_2_outstream
-    }
-  }
-};
+  'dbrs.dk': {
+    'mobile_3': {
+        template: 'midscroll',
+        slot: '{{ pathPrefix }}{{ pathOverride }}mobile_3',
+        sizes: [[300, 240], [320, 320]],
+        peekAmount: '100vh' 
+      },
+    'mobile_4': {
+        template: 'midscroll',
+        slot: '{{ pathPrefix }}{{ pathOverride }}mobile_4',
+        sizes: [[300, 240], [320, 320]],
+        peekAmount: '100vh' 
+          }
+      },
+    'dbrs.dk': {
+        'mobile_3': {
+            template: 'midscroll',
+            slot: '{{ pathPrefix }}{{ pathOverride }}mobile_3',
+            sizes: [[300, 240], [320, 320]],
+            peekAmount: '100vh' 
+          },
+        'mobile_4': {
+            template: 'midscroll',
+            slot: '{{ pathPrefix }}{{ pathOverride }}mobile_4',
+            sizes: [[300, 240], [320, 320]],
+            peekAmount: '100vh' 
+          }
+        }
+    };
 ```
 ## Example Use Case:
 For the domain example2.com, the topscroll_mobile ad size is overridden to [[320, 320]], and the mobile_2_outstream peek amount is reduced to 75vh. All other ad units for example2.com will use the default configuration.

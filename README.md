@@ -15,8 +15,8 @@ If a match is found, the domain-specific configuration is merged with the `defau
 If no match is found, the default configuration is used, or the system returns null if no configuration should be applied.
 
 ## Example Domains:
-jv.dk (default configuration)
-fyens.dk.com (domain-specific overrides)
+jv.dk (default configuration).  
+fyens.dk.com (domain-specific overrides).  
 ```javascript
 const seenThisOptions = {
     'jv.dk': {}, // Empty config for 'jv.dk', will load default.
